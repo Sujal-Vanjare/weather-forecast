@@ -1,0 +1,98 @@
+.page {
+  max-width: 1256px;
+  margin: auto;
+  padding: 10px 10px;
+}
+
+.backgroundVideo {
+  width: 854px;
+  height: 480px;
+  position: relative;
+}
+
+.weatherReport {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Higher z-index to place weather report above the video */
+
+  padding: 20px; /* Add padding to the weather report for better readability */
+}
+
+.city {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.region {
+  margin-top: 6px;
+  font-size: 20px;
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+.current {
+  margin-top: 36px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.localTime {
+  font-size: 16px;
+  margin-top: 6px;
+  opacity: 0.9;
+}
+
+.weatherContainer {
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+  gap: 26px;
+}
+
+.weatherIcon {
+  width: auto;
+  height: 100px;
+}
+
+.conditionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.degree {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.divide {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  margin: 0 24px;
+}
+
+.celsius,
+.fahrenheit {
+  font-size: 64px;
+}
+
+.tempUnit {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.tempUnit {
+  font-size: 34px;
+  font-weight: 400;
+  vertical-align: top;
+  margin-top: 10px;
+}
+
+.condition {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+/*  */

@@ -1,0 +1,122 @@
+.navContainer {
+  height: 49px;
+  background-color: #000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.navbar {
+  max-width: 1236px;
+  height: 100%;
+  margin: auto;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.head {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  height: 38px;
+  border-radius: 8px;
+  background-color: #1d1d1f;
+}
+
+.searchContainer input {
+  background-color: #1d1d1f;
+  width: 224px;
+  height: 38px;
+  border: 0;
+  outline: none;
+  padding: 10px;
+}
+
+.searchIcon {
+  background: url("/search-icon-revert.svg");
+  background-position: center;
+  background-size: 20px;
+  height: 38px;
+  width: 38px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 0.6;
+}
+
+.clearIcon {
+  background: url("/close-icon.svg");
+  background-position: center;
+  background-size: 16px;
+  height: 38px;
+  width: 38px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 0.6;
+}
+
+.searchIcon:hover {
+  background-color: #0063b1;
+  opacity: 1;
+}
+
+.clearIcon:hover {
+  background-color: #0063b1;
+  opacity: 1;
+}
+
+.linksContainer {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 10px;
+}
+
+.quickLinks {
+  position: fixed;
+  width: 300px;
+  background-color: #000;
+  list-style: none;
+}
+
+.link {
+  min-height: 52px;
+  padding: 7px 16px 7px 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.link:hover {
+  background-color: #2e2e2e;
+}
+
+.city {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.country {
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.locationIcon {
+  background: url("/location-svg.svg");
+  background-position: center;
+  background-size: 21px;
+  opacity: 0.8;
+  height: 38px;
+  width: 38px;
+  background-repeat: no-repeat;
+}
