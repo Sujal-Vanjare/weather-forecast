@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./sunMoonTime.module.css";
 
 const moonPhaseImages = {
@@ -77,8 +78,10 @@ export default function SunMoonTime({ astro }) {
         <div className={styles.moonPhase}>
           <p className={styles.moonPhaseHead}>Moon phase</p>
           <div className={styles.phaseContainer}>
-            <img
+            <Image
               className={styles.phaseIcon}
+              width={80}
+              height={80}
               src={`/moon/${moonPhaseImages[astro.moon_phase]}`}
               alt="moon-icon"
             />

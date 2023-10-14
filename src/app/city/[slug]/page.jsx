@@ -3,6 +3,7 @@ import { API_KEY } from "@/utils/urls";
 import { formatDateTime } from "@/utils/time";
 import BackgroundVideo from "@/components/background-video/backgroundVideo";
 import SunMoonTime from "@/components/sunMoonTime/sunMoonTime";
+import Image from "next/image";
 
 async function getWeather(city) {
   const res = await fetch(
@@ -50,7 +51,6 @@ export default async function City(slug) {
   const weatherConditionText = data ? data.current.condition.text : "";
 
   const lastUpdateTime = formatDateTime(data.current.last_updated);
-  console.log(lastUpdateTime);
 
   const astro = data.forecast.forecastday[0].astro;
   return (
@@ -80,11 +80,13 @@ export default async function City(slug) {
                 <div className={styles.localTime}>{formattedDateTime}</div>
 
                 <div className={styles.weatherContainer}>
-                  <img
-                    className={styles.weatherIcon}
-                    src={data.current.condition.icon}
+                  <Image
+                    width={100}
+                    height={100}
+                    src={`https:${data.current.condition.icon}`}
                     alt={data.current.condition.text}
                   />
+
                   <div className={styles.conditionContainer}>
                     <div className={styles.degree}>
                       <div>
@@ -134,18 +136,22 @@ export default async function City(slug) {
         </div>
         <div className={styles.secondRow}>
           <div className={styles.dayNight}>
-            <img
-              className={styles.dayNightIcon}
+            <Image
+              width={86}
+              height={86}
               src={data.current.is_day ? "/day.png" : "/night.png"}
               alt="day night icon"
             />
+
             <p className={styles.boxText}>
               <span className={styles.boxTextFirst}>it&apos;s a </span>
               <span>{data.current.is_day ? "Day" : "Night"}</span>
             </p>
           </div>
           <div className={styles.humidity}>
-            <img
+            <Image
+              width={73}
+              height={73}
               className={styles.humidityIcon}
               src="/humidity.png"
               alt="humidity icon"
@@ -156,18 +162,20 @@ export default async function City(slug) {
             </p>
           </div>
           <div className={styles.cloud}>
-            <img className={styles.cloudIcon} src="/cloud.png" alt="" />
+            <Image
+              width={73}
+              height={73}
+              className={styles.cloudIcon}
+              src="/cloud.png"
+              alt="cloud icon"
+            />
             <p className={styles.boxText}>
               <span className={styles.boxTextFirst}>Cloud </span>
               <span>{data.current.cloud}&#37;</span>
             </p>
           </div>
           <div className={styles.windSpeed}>
-            <img
-              className={styles.windSpeedIcon}
-              src="/wind-speed.png"
-              alt=""
-            />
+            <Image width={55} height={55} src="/wind-speed.png" alt="" />
             <div className={styles.windSpeedText}>
               <span className={styles.windTextFirst}>Wind Speed</span>
               <span className={styles.windSpeedUnit}>
@@ -177,8 +185,9 @@ export default async function City(slug) {
             </div>
           </div>
           <div className={styles.windDir}>
-            <img
-              className={styles.windDirIcon}
+            <Image
+              width={45}
+              height={45}
               src="/wind-direction.png"
               alt=""
               style={{ transform: `rotate(${data.current.wind_degree}deg)` }}
