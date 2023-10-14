@@ -140,7 +140,7 @@ export default async function City(slug) {
               alt="day night icon"
             />
             <p className={styles.boxText}>
-              <span className={styles.boxTextFirst}>it's a </span>
+              <span className={styles.boxTextFirst}>it&apos;s a </span>
               <span>{data.current.is_day ? "Day" : "Night"}</span>
             </p>
           </div>
