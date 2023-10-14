@@ -1,0 +1,134 @@
+/*  */
+
+.sunmoon {
+  display: flex;
+  flex-direction: column;
+  width: 372px;
+  height: 100%;
+  border-radius: 16px;
+  background-color: #000;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.sunmoonhead {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sun {
+  margin-top: 36px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rise,
+.set {
+  width: 80px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sunriseIcon {
+  background-image: url("/sunrise.svg");
+  display: block;
+  background-position: center;
+  background-size: 25px;
+  height: 25px;
+  width: 25px;
+  background-repeat: no-repeat;
+}
+
+.sunsetIcon {
+  background-image: url("/sunset.svg");
+  display: block;
+  background-position: center;
+  background-size: 25px;
+  height: 25px;
+  width: 25px;
+  background-repeat: no-repeat;
+}
+
+.sunmoontext {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 400;
+  opacity: 0.8;
+}
+.sunmoontime {
+  margin-top: 3px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.moon {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.moonriseIcon {
+  background-image: url("/moonrise.svg");
+  display: block;
+  background-position: center;
+  background-size: 25px;
+  height: 25px;
+  width: 25px;
+  background-repeat: no-repeat;
+}
+.moonsetIcon {
+  background-image: url("/moonset.svg");
+  display: block;
+  background-position: center;
+  background-size: 25px;
+  height: 25px;
+  width: 25px;
+  background-repeat: no-repeat;
+}
+
+.totalTime {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.timeDiff {
+  font-size: 15px;
+  font-weight: 500;
+  padding-bottom: 4px;
+}
+
+.moonPhase {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.moonPhaseHead {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.phaseContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.phaseIcon {
+  width: 80px;
+  height: auto;
+  margin-left: 6px;
+}
+
+.phaseText {
+  font-size: 18px;
+  font-weight: 400;
+  opacity: 0.9;
+  margin-left: 20px;
+  text-align: center;
+}

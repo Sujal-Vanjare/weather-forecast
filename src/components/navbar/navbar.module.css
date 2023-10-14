@@ -26,18 +26,20 @@
   width: 300px;
   height: 38px;
   border-radius: 8px;
-  background-color: #1d1d1f;
+  background-color: #2e2e2e;
 }
 
 .searchContainer input {
-  background-color: #1d1d1f;
+  background-color: #2e2e2e;
   width: 224px;
   height: 38px;
   border: 0;
   outline: none;
   padding: 10px;
 }
-
+.searchContainer input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
 .searchIcon {
   background: url("/search-icon-revert.svg");
   background-position: center;
@@ -84,14 +86,16 @@
 
 .quickLinks {
   position: fixed;
+  z-index: 1;
   width: 300px;
-  background-color: #000;
+  background-color: #141414;
   list-style: none;
 }
 
 .link {
   min-height: 52px;
   padding: 7px 16px 7px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
   display: flex;
   justify-content: space-between;
 }

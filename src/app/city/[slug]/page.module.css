@@ -4,10 +4,23 @@
   padding: 10px 10px;
 }
 
+.firstRow {
+  display: flex;
+  width: 100%;
+  height: 480px;
+  gap: 10px;
+}
+
 .backgroundVideo {
   width: 854px;
-  height: 480px;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+
+  background-color: #000;
+
   position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.24);
 }
 
 .weatherReport {
@@ -95,4 +108,126 @@
   font-weight: 600;
 }
 
+.feelsLike {
+  margin-top: 50px;
+  display: flex;
+}
+.feelhead {
+  font-size: 18px;
+  font-weight: 500;
+  opacity: 0.9;
+  margin-right: 18px;
+}
+.feelsTemp {
+  font-weight: 20px;
+  font-weight: 600;
+}
+.feelsTempUnit {
+  font-size: 12px;
+  font-weight: 400;
+  display: inline-block;
+  vertical-align: middle;
+  vertical-align: top;
+}
+
+.feelDivide {
+  border: 0.5px solid #fff;
+  opacity: 0.6;
+  margin: 0 14px;
+}
 /*  */
+.secondRow {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr;
+  gap: 10px;
+  width: 100%;
+  height: 160px;
+}
+
+.dayNight,
+.humidity,
+.cloud,
+.windSpeed,
+.windDir,
+.lastUpdate {
+  background-color: #000;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.dayNightIcon {
+  width: 86px;
+  height: auto;
+}
+
+.boxText {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.boxTextFirst {
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/*  */
+
+.humidityIcon,
+.cloudIcon {
+  margin-bottom: 10px;
+  width: 73px;
+}
+
+.windSpeedIcon {
+  width: 55px;
+}
+
+.windTextFirst {
+  font-weight: 400;
+  opacity: 0.8;
+  width: 66px;
+  text-align: center;
+}
+
+.windSpeedText {
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  margin-top: 10px;
+}
+.windSpeedUnit {
+  font-size: 15px;
+}
+
+.windDirIcon {
+  width: 45px;
+}
+
+.windDirText {
+  margin-top: 4px;
+  font-size: 14px;
+  opacity: 0.9;
+  text-align: center;
+}
+
+.dirBoxText {
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 14px;
+}
+
+.lastUpdate {
+  font-size: 13px;
+  font-size: 500;
+}
+
+.lastUpdateFirst {
+  opacity: 0.8;
+}

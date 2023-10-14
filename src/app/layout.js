@@ -15,23 +15,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div
-          style={{
-            position: "absolute",
-            zIndex: -1,
-            width: "100%",
-            height: "100%",
-          }}
-        >
-          <Image
-            alt="space"
-            src="/space.jpg"
-            quality={100}
-            fill
-            sizes="100vw"
-            style={{ objectFit: "cover" }}
-          />
-        </div>
         <Navbar />
         {children}
         {/* <Footer /> */}
