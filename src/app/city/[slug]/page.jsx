@@ -53,6 +53,7 @@ export default async function City(slug) {
   const lastUpdateTime = formatDateTime(data.current.last_updated);
 
   const astro = data.forecast.forecastday[0].astro;
+  const forecast = data.forecast.forecastday[0].day;
   return (
     <main>
       <div className={styles.page}>
@@ -204,6 +205,125 @@ export default async function City(slug) {
           <div className={styles.lastUpdate}>
             <p className={styles.lastUpdateFirst}>Last Updated</p>
             <p>{lastUpdateTime}</p>
+          </div>
+        </div>
+
+        <h2 className={styles.forecastText}>Forecast</h2>
+        <div className={styles.thirdRow}>
+          <div className={styles.temperatures}>
+            <div className={styles.maxTemp}>
+              <span className={styles.forecastBoxText}>
+                Max temp today &#58;{" "}
+              </span>
+              <span className={styles.forecastBoxUnit}>
+                <span> {forecast.maxtemp_c} </span>
+                <span className={styles.feelsTempUnit}>&deg;C</span>
+                <span className={styles.maxTempDivide}></span>
+                <span> {forecast.maxtemp_f} </span>
+                <span className={styles.feelsTempUnit}>&deg;F</span>
+              </span>
+            </div>
+            <div className={styles.minTemp}>
+              <span className={styles.forecastBoxText}>
+                Min temp today &#58;{" "}
+              </span>
+              <span className={styles.forecastBoxUnit}>
+                <span> {forecast.mintemp_c} </span>
+                <span className={styles.feelsTempUnit}>&deg;C</span>
+                <span className={styles.maxTempDivide}></span>
+                <span> {forecast.mintemp_f} </span>
+                <span className={styles.feelsTempUnit}>&deg;F</span>
+              </span>
+            </div>
+            <div className={styles.minTemp}>
+              <span className={styles.forecastBoxText}>
+                avg temp today &#58;{" "}
+              </span>
+              <span className={styles.forecastBoxUnit}>
+                <span> {forecast.avgtemp_c} </span>
+                <span className={styles.feelsTempUnit}>&deg;C</span>
+                <span className={styles.maxTempDivide}></span>
+                <span> {forecast.avgtemp_f} </span>
+                <span className={styles.feelsTempUnit}>&deg;F</span>
+              </span>
+            </div>
+          </div>
+          <div className={styles.windHumidity}>
+            <div className={styles.wind}>
+              <span className={styles.forecastBoxText}>
+                Max wind speed &#58;{" "}
+              </span>
+              <span className={styles.forecastBoxUnit}>
+                <p>{forecast.maxwind_kph} km&#47;hr</p>
+                <p>{forecast.maxwind_mph} miles&#47;hr</p>
+              </span>
+            </div>
+            <div className={styles.visibility}>
+              <span className={styles.forecastBoxText}>
+                Average visibility &#58;{" "}
+              </span>
+              <span className={styles.forecastBoxUnit}>
+                <p>{forecast.avgvis_km} km</p>
+                <p>{forecast.avgvis_miles} miles</p>
+              </span>
+            </div>
+            <div className={styles.avgHumidity}>
+              <span className={styles.forecastBoxText}>
+                Average humidity &#58;{" "}
+              </span>
+              <span className={styles.forecastBoxUnit}>
+                {forecast.avghumidity} &#37;
+              </span>
+            </div>
+          </div>
+          <div className={styles.chancesOff}>
+            <div className={styles.rain}>
+              <div>
+                <span className={styles.forecastBoxText}>
+                  Will it Rain today &#58;{" "}
+                </span>
+                <span className={styles.forecastBoxUnit}>
+                  {forecast.daily_will_it_rain ? "Yes" : "No"}
+                </span>
+              </div>
+              <div>
+                <span className={styles.forecastBoxText}>
+                  Chance of rain &#58;{" "}
+                </span>
+                <span className={styles.forecastBoxUnit}>
+                  {forecast.daily_chance_of_rain} &#37;
+                </span>
+              </div>
+            </div>
+            <div className={styles.snow}>
+              <div>
+                <span className={styles.forecastBoxText}>
+                  Will it Snow today &#58;{" "}
+                </span>
+                <span className={styles.forecastBoxUnit}>
+                  {forecast.daily_will_it_snow ? "Yes" : "No"}
+                </span>
+              </div>
+              <div>
+                <span className={styles.forecastBoxText}>
+                  Chance of Snow &#58;{" "}
+                </span>
+                <span className={styles.forecastBoxUnit}>
+                  {forecast.daily_chance_of_snow} &#37;
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.forecastCondition}>
+            <Image
+              width={90}
+              height={90}
+              src={`https:${forecast.condition.icon}`}
+              alt={forecast.condition.text}
+            />
+            <p className={styles.conditionWill}>Conditions will be</p>
+            <p className={styles.conditionText}>{forecast.condition.text}</p>
           </div>
         </div>
       </div>
