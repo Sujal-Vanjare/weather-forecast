@@ -1,9 +1,9 @@
 import styles from "./page.module.css";
 import { API_KEY } from "@/utils/urls";
-import { formatDateTime } from "@/utils/time";
-import BackgroundVideo from "@/components/background-video/backgroundVideo";
+import { formatDateTime, formatDateOnly, extractTime } from "@/utils/time";
 import SunMoonTime from "@/components/sunMoonTime/sunMoonTime";
 import Image from "next/image";
+import HourlyForecast from "@/components/hourlyForecast/hourlyForecast";
 
 async function getWeather(city) {
   const res = await fetch(
@@ -48,89 +48,90 @@ export default async function City(slug) {
   const city = slug.searchParams.cityName;
   const data = await getWeather(city);
   const formattedDateTime = formatDateTime(data.location.localtime);
-  const weatherConditionText = data ? data.current.condition.text : "";
 
   const lastUpdateTime = formatDateTime(data.current.last_updated);
 
   const astro = data.forecast.forecastday[0].astro;
+
+  const forecastDate = formatDateOnly(data.forecast.forecastday[0].date);
   const forecast = data.forecast.forecastday[0].day;
+  const hourlyForecastData = data.forecast.forecastday[0].hour;
+
   return (
     <main>
       <div className={styles.page}>
         <div className={styles.firstRow}>
-          <div className={styles.backgroundVideo}>
-            {/* Use the BackgroundVideo component */}
-            {/* <BackgroundVideo weatherConditionText={weatherConditionText} /> */}
-            {/* Rest of your component */}
-            <div className={styles.weatherReport}>
-              <div className={styles.climate}>
-                <h2 className={styles.city}>{data.location.name}</h2>
-                <div className={styles.region}>
-                  {data.location.region && (
-                    <span>
-                      {data.location.region}
-                      {" | "}
-                    </span>
-                  )}
-                  {data.location.country && (
-                    <span>{data.location.country}</span>
-                  )}
-                </div>
+          <div className={styles.weatherReport}>
+            <div className={styles.climate}>
+              <h2 className={styles.city}>{data.location.name}</h2>
+              <div className={styles.region}>
+                {data.location.region && (
+                  <span>
+                    {data.location.region}
+                    {" | "}
+                  </span>
+                )}
+                {data.location.country && <span>{data.location.country}</span>}
+              </div>
 
-                <h4 className={styles.current}>Current Weather</h4>
-                <div className={styles.localTime}>{formattedDateTime}</div>
+              <h4 className={styles.current}>Current Weather</h4>
+              <div className={styles.localTime}>{formattedDateTime}</div>
 
-                <div className={styles.weatherContainer}>
-                  <Image
-                    width={100}
-                    height={100}
-                    src={`https:${data.current.condition.icon}`}
-                    alt={data.current.condition.text}
-                  />
+              <div className={styles.weatherContainer}>
+                <Image
+                  width={100}
+                  height={100}
+                  src={`https:${data.current.condition.icon}`}
+                  alt={data.current.condition.text}
+                />
 
-                  <div className={styles.conditionContainer}>
-                    <div className={styles.degree}>
-                      <div>
-                        <span className={styles.celsius}>
-                          {data.current.temp_c}
-                        </span>
-                        <span className={styles.tempUnit}>&deg;C</span>
-                      </div>
-                      <div className={styles.divide}></div>
-                      <div>
-                        <span className={styles.fahrenheit}>
-                          {data.current.temp_f}
-                        </span>
-
-                        <span className={styles.tempUnit}>&deg;F</span>
-                      </div>
+                <div className={styles.conditionContainer}>
+                  <div className={styles.degree}>
+                    <div>
+                      <span className={styles.celsius}>
+                        {data.current.temp_c}
+                      </span>
+                      <span className={styles.tempUnit}>&deg;C</span>
                     </div>
-                    <div className={styles.condition}>
-                      {data.current.condition.text}
+                    <div className={styles.divide}></div>
+                    <div>
+                      <span className={styles.fahrenheit}>
+                        {data.current.temp_f}
+                      </span>
+
+                      <span className={styles.tempUnit}>&deg;F</span>
                     </div>
                   </div>
+                  <div className={styles.condition}>
+                    {data.current.condition.text}
+                  </div>
                 </div>
-                <div className={styles.feelsLike}>
-                  <p className={styles.feelhead}>Feels like :</p>
+              </div>
+              <div className={styles.feelsLike}>
+                <p className={styles.feelhead}>Feels like :</p>
 
-                  <p>
-                    <span className={styles.feelsTemp}>
-                      {data.current.feelslike_c}
-                    </span>
-                    <span className={styles.feelsTempUnit}>&deg;C</span>
-                  </p>
-                  <div className={styles.feelDivide}></div>
-                  <p>
-                    <span className={styles.feelsTemp}>
-                      {data.current.feelslike_f}
-                    </span>
+                <p>
+                  <span className={styles.feelsTemp}>
+                    {data.current.feelslike_c}
+                  </span>
+                  <span className={styles.feelsTempUnit}>&deg;C</span>
+                </p>
+                <div className={styles.feelDivide}></div>
+                <p>
+                  <span className={styles.feelsTemp}>
+                    {data.current.feelslike_f}
+                  </span>
 
-                    <span className={styles.feelsTempUnit}>&deg;F</span>
-                  </p>
-                </div>
+                  <span className={styles.feelsTempUnit}>&deg;F</span>
+                </p>
+              </div>
+              <div className={styles.lastUpdated}>
+                <span>Last Updated : </span>
+                <span> {lastUpdateTime}</span>
               </div>
             </div>
           </div>
+
           {/* sun rise moon rise time */}
 
           <SunMoonTime astro={astro} />
@@ -202,13 +203,22 @@ export default async function City(slug) {
               </div>
             </div>
           </div>
-          <div className={styles.lastUpdate}>
-            <p className={styles.lastUpdateFirst}>Last Updated</p>
-            <p>{lastUpdateTime}</p>
+          <div className={styles.boxVisibility}>
+            <Image width={55} height={55} src="/visibility.png" alt="" />
+            <div className={styles.boxVisibilityText}>
+              <span className={styles.boxTextFirst}>Visibility </span>
+              <span>
+                <p>{data.current.vis_km} km</p>
+                <p>{data.current.vis_miles} miles</p>
+              </span>
+            </div>
           </div>
         </div>
 
-        <h2 className={styles.forecastText}>Forecast</h2>
+        <h2 className={styles.forecastText}>
+          Forecast{" "}
+          <span className={styles.forecastDate}> for {forecastDate}</span>
+        </h2>
         <div className={styles.thirdRow}>
           <div className={styles.temperatures}>
             <div className={styles.maxTemp}>
@@ -326,6 +336,12 @@ export default async function City(slug) {
             <p className={styles.conditionText}>{forecast.condition.text}</p>
           </div>
         </div>
+
+        <h2 className={styles.forecastText}>Hourly Forecast </h2>
+        <HourlyForecast
+          hourlyForecastData={hourlyForecastData}
+          currentTime={extractTime(formattedDateTime)}
+        />
       </div>
     </main>
   );
