@@ -116,3 +116,9 @@
   opacity: 1;
   font-weight: 500;
 }
+
+@media (max-width: 979px) {
+  .hourBox {
+    width: 170px;
+  }
+}

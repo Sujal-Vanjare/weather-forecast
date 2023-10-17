@@ -130,3 +130,70 @@
   margin-left: 20px;
   text-align: center;
 }
+
+@media (max-width: 1303px) {
+  .sunmoon {
+    width: 304px;
+    border-radius: 12px;
+    padding: 15px;
+  }
+  .sunmoonhead {
+    font-size: 15px;
+  }
+  .sunmoontext {
+    font-size: 14px;
+  }
+  .sunmoontime {
+    font-size: 14px;
+  }
+  .timeDiff {
+    font-size: 14px;
+  }
+
+  .moonPhaseHead {
+    font-size: 15px;
+  }
+  .phaseText {
+    font-size: 17px;
+  }
+
+  .phaseIcon {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (max-width: 979px) and (min-width: 650px) {
+  .sunmoon {
+    width: 100%;
+    height: 100%;
+  }
+  .sunMoonPhaseContainer {
+    display: flex;
+    gap: 20px;
+  }
+  .sunMoonContainer {
+    flex: 1;
+  }
+  .moonPhase {
+    flex: 1;
+    margin-top: 70px;
+  }
+  .moonPhaseHead {
+    margin-left: 20px;
+  }
+  .sun,
+  .moon {
+    margin-top: 20px;
+  }
+  .moon {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 650px) {
+  .sunmoon {
+    width: 100%;
+    height: 100%;
+  }
+}

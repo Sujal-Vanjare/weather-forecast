@@ -300,3 +300,290 @@
 
   font-weight: 600;
 }
+
+@media (max-width: 1303px) {
+  .page {
+    max-width: 944px;
+    margin: auto;
+    padding: 10px 10px 60px 10px;
+  }
+
+  .firstRow {
+    height: 470px;
+  }
+
+  .weatherReport {
+    width: 610px;
+    height: 100%;
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .city {
+    font-size: 30px;
+  }
+
+  .region {
+    font-size: 17px;
+  }
+  .current {
+    font-size: 16px;
+  }
+  .localTime {
+    font-size: 14px;
+  }
+  .degree {
+    height: 66px;
+  }
+  .celsius,
+  .fahrenheit {
+    font-size: 48px;
+  }
+
+  .tempUnit {
+    font-size: 24px;
+    margin-top: 5px;
+  }
+
+  .divide {
+    margin: 0 20px;
+  }
+
+  /*  */
+  /*  */
+  .secondRow {
+    height: 150px;
+    gap: 8px;
+  }
+  .boxText {
+    font-size: 17px;
+  }
+  .dayNightIcon {
+    width: 70px;
+    height: 70px;
+  }
+  .humidityIcon {
+    width: 65px;
+    height: 65px;
+  }
+  .cloudIcon {
+    width: 65px;
+    height: 65px;
+  }
+
+  .windSpeedIcon {
+    width: 50px;
+    height: 50px;
+  }
+  .windTextFirst {
+    width: 45px;
+    margin-right: 6px;
+  }
+  .windSpeedText {
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    margin-top: 10px;
+  }
+  .windSpeedUnit {
+    font-size: 13px;
+  }
+  .windDirIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .dirBoxText {
+    font-size: 13px;
+  }
+
+  .windDirText {
+    font-size: 12px;
+  }
+
+  .boxVisibilityIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .boxVisibilityText {
+    font-size: 16px;
+    gap: 8px;
+  }
+
+  /*  */
+  .thirdRow {
+    gap: 8px;
+    height: 180px;
+  }
+  .forecastBoxText {
+    font-size: 13px;
+  }
+
+  .forecastBoxUnit {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .maxTemp,
+  .minTemp,
+  .avgTemp {
+    margin-top: 15px;
+  }
+  .maxTempDivide {
+    border: 0.5px solid #fff;
+    opacity: 0.6;
+    margin: 0 4px;
+  }
+  .rain,
+  .snow {
+    margin-top: 13px;
+    line-height: 22px;
+  }
+  .forecastConditionIcon {
+    width: 80px;
+    height: 80px;
+  }
+  .conditionWill {
+    font-size: 17px;
+  }
+
+  .conditionText {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 979px) {
+  .page {
+    max-width: 632px;
+  }
+  .firstRow {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    gap: 10px;
+  }
+
+  .weatherReport {
+    width: 100%;
+  }
+  .lastUpdated {
+    margin-top: 25px;
+  }
+
+  /*  */
+  .secondRow {
+    grid-template-columns: repeat(3, 2fr);
+    height: fit-content;
+  }
+
+  .dayNight,
+  .humidity,
+  .cloud,
+  .windSpeed,
+  .windDir,
+  .boxVisibility {
+    height: 200px;
+  }
+
+  /*  */
+  .thirdRow {
+    grid-template-columns: repeat(2, 2fr);
+    height: fit-content;
+  }
+
+  .temperatures,
+  .windHumidity,
+  .chancesOff,
+  .forecastCondition {
+    height: 180px;
+  }
+}
+
+@media (max-width: 650px) {
+  .page {
+    max-width: 100%;
+    margin: auto;
+    padding: 10px 15px 80px 15px;
+  }
+
+  .firstRow {
+    width: 100%;
+    height: fit-content;
+  }
+
+  .city {
+    font-size: 24px;
+  }
+
+  .region {
+    margin-top: 2px;
+    font-size: 16px;
+  }
+  .current {
+    margin-top: 25px;
+    font-size: 15px;
+  }
+  .localTime {
+    font-size: 12px;
+  }
+  .degree {
+    height: 54px;
+  }
+  .celsius,
+  .fahrenheit {
+    font-size: 42px;
+  }
+
+  .tempUnit {
+    font-size: 20px;
+    margin-top: 5px;
+  }
+
+  .divide {
+    margin: 0 20px;
+  }
+
+  .condition {
+    font-size: 24px;
+  }
+
+  .secondRow {
+    grid-template-columns: repeat(2, 2fr);
+  }
+}
+
+@media (max-width: 516px) {
+  .thirdRow {
+    grid-template-columns: repeat(1, 2fr);
+    height: fit-content;
+  }
+}
+
+@media (max-width: 424px) {
+  .weatherReport {
+    padding: 15px;
+  }
+  .currentConditionIcon {
+    width: 80px;
+    height: 80px;
+  }
+  .weatherContainer {
+    gap: 10px;
+  }
+  .degree {
+    height: 50px;
+  }
+  .celsius,
+  .fahrenheit {
+    font-size: 36px;
+  }
+
+  .tempUnit {
+    font-size: 12px;
+  }
+
+  .divide {
+    margin: 0 10px;
+  }
+}

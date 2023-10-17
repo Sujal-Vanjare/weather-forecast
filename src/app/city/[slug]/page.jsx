@@ -83,6 +83,7 @@ export default async function City(slug) {
                   height={100}
                   src={`https:${data.current.condition.icon}`}
                   alt={data.current.condition.text}
+                  className={styles.currentConditionIcon}
                 />
 
                 <div className={styles.conditionContainer}>
@@ -141,6 +142,7 @@ export default async function City(slug) {
             <Image
               width={86}
               height={86}
+              className={styles.dayNightIcon}
               src={data.current.is_day ? "/day.png" : "/night.png"}
               alt="day night icon"
             />
@@ -177,7 +179,13 @@ export default async function City(slug) {
             </p>
           </div>
           <div className={styles.windSpeed}>
-            <Image width={55} height={55} src="/wind-speed.png" alt="" />
+            <Image
+              width={55}
+              height={55}
+              className={styles.windSpeedIcon}
+              src="/wind-speed.png"
+              alt=""
+            />
             <div className={styles.windSpeedText}>
               <span className={styles.windTextFirst}>Wind Speed</span>
               <span className={styles.windSpeedUnit}>
@@ -190,6 +198,7 @@ export default async function City(slug) {
             <Image
               width={45}
               height={45}
+              className={styles.windDirIcon}
               src="/wind-direction.png"
               alt=""
               style={{ transform: `rotate(${data.current.wind_degree}deg)` }}
@@ -204,7 +213,13 @@ export default async function City(slug) {
             </div>
           </div>
           <div className={styles.boxVisibility}>
-            <Image width={55} height={55} src="/visibility.png" alt="" />
+            <Image
+              width={55}
+              height={55}
+              className={styles.boxVisibilityIcon}
+              src="/visibility.png"
+              alt=""
+            />
             <div className={styles.boxVisibilityText}>
               <span className={styles.boxTextFirst}>Visibility </span>
               <span>
@@ -331,6 +346,7 @@ export default async function City(slug) {
               height={90}
               src={`https:${forecast.condition.icon}`}
               alt={forecast.condition.text}
+              className={styles.forecastConditionIcon}
             />
             <p className={styles.conditionWill}>Conditions will be</p>
             <p className={styles.conditionText}>{forecast.condition.text}</p>

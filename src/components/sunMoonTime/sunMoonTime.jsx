@@ -40,52 +40,55 @@ export default function SunMoonTime({ astro }) {
     <>
       <div className={styles.sunmoon}>
         <p className={styles.sunmoonhead}>Sun/Moon</p>
+        <div className={styles.sunMoonPhaseContainer}>
+          <div className={styles.sunMoonContainer}>
+            <div className={styles.sun}>
+              <div className={styles.rise}>
+                <div className={styles.sunriseIcon}></div>
+                <div className={styles.sunmoontext}>Sunrise</div>
+                <div className={styles.sunmoontime}>{astro.sunrise}</div>
+              </div>
+              <div className={styles.totalTime}>
+                <div className={styles.sunmoontext}>total time</div>
+                <div className={styles.timeDiff}>{sunriseToSunset}</div>
+              </div>
+              <div className={styles.set}>
+                <div className={styles.sunsetIcon}></div>
+                <div className={styles.sunmoontext}>Sunset</div>
+                <div className={styles.sunmoontime}>{astro.sunset}</div>
+              </div>
+            </div>
 
-        <div className={styles.sun}>
-          <div className={styles.rise}>
-            <div className={styles.sunriseIcon}></div>
-            <div className={styles.sunmoontext}>Sunrise</div>
-            <div className={styles.sunmoontime}>{astro.sunrise}</div>
+            <div className={styles.moon}>
+              <div className={styles.rise}>
+                <div className={styles.moonriseIcon}></div>
+                <div className={styles.sunmoontext}>Moonrise</div>
+                <div className={styles.sunmoontime}>{astro.moonrise}</div>
+              </div>
+              <div className={styles.totalTime}>
+                <div className={styles.sunmoontext}>total time</div>
+                <div className={styles.timeDiff}>{moonriseToMoonset}</div>
+              </div>
+              <div className={styles.set}>
+                <div className={styles.moonsetIcon}></div>
+                <div className={styles.sunmoontext}>Moonset</div>
+                <div className={styles.sunmoontime}>{astro.moonset}</div>
+              </div>
+            </div>
           </div>
-          <div className={styles.totalTime}>
-            <div className={styles.sunmoontext}>total time</div>
-            <div className={styles.timeDiff}>{sunriseToSunset}</div>
-          </div>
-          <div className={styles.set}>
-            <div className={styles.sunsetIcon}></div>
-            <div className={styles.sunmoontext}>Sunset</div>
-            <div className={styles.sunmoontime}>{astro.sunset}</div>
-          </div>
-        </div>
 
-        <div className={styles.moon}>
-          <div className={styles.rise}>
-            <div className={styles.moonriseIcon}></div>
-            <div className={styles.sunmoontext}>Moonrise</div>
-            <div className={styles.sunmoontime}>{astro.moonrise}</div>
-          </div>
-          <div className={styles.totalTime}>
-            <div className={styles.sunmoontext}>total time</div>
-            <div className={styles.timeDiff}>{moonriseToMoonset}</div>
-          </div>
-          <div className={styles.set}>
-            <div className={styles.moonsetIcon}></div>
-            <div className={styles.sunmoontext}>Moonset</div>
-            <div className={styles.sunmoontime}>{astro.moonset}</div>
-          </div>
-        </div>
-
-        <div className={styles.moonPhase}>
-          <p className={styles.moonPhaseHead}>Moon phase</p>
-          <div className={styles.phaseContainer}>
-            <Image
-              className={styles.phaseIcon}
-              width={80}
-              height={80}
-              src={`/moon/${moonPhaseImages[astro.moon_phase]}`}
-              alt="moon-icon"
-            />
-            <div className={styles.phaseText}>{astro.moon_phase}</div>
+          <div className={styles.moonPhase}>
+            <p className={styles.moonPhaseHead}>Moon phase</p>
+            <div className={styles.phaseContainer}>
+              <Image
+                className={styles.phaseIcon}
+                width={80}
+                height={80}
+                src={`/moon/${moonPhaseImages[astro.moon_phase]}`}
+                alt="moon-icon"
+              />
+              <div className={styles.phaseText}>{astro.moon_phase}</div>
+            </div>
           </div>
         </div>
       </div>

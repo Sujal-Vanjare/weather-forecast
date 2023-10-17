@@ -88,7 +88,14 @@ export default function Navbar() {
                 onClick={handleClearSearch}
               ></button>
             )}
-            <button className={styles.searchIcon}></button>
+            <button
+              className={styles.searchIcon}
+              onClick={() => {
+                if (data.length > 0 && firstResultLinkRef.current) {
+                  firstResultLinkRef.current.click();
+                }
+              }}
+            ></button>
           </div>
         </nav>
       </div>

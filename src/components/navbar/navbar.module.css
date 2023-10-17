@@ -25,7 +25,6 @@
   justify-content: space-between;
   width: 300px;
   height: 38px;
-  border-radius: 8px;
   background-color: #2e2e2e;
 }
 
@@ -123,4 +122,58 @@
   height: 38px;
   width: 38px;
   background-repeat: no-repeat;
+}
+
+@media (max-width: 1303px) {
+  .navbar {
+    max-width: 938px;
+  }
+  .linksContainer {
+    max-width: 938px;
+  }
+}
+
+@media (max-width: 979px) {
+  .navbar {
+    max-width: 630px;
+  }
+  .linksContainer {
+    max-width: 630px;
+  }
+}
+
+@media (max-width: 500px) {
+  .head {
+    font-size: 16px;
+  }
+  .searchContainer {
+    width: 250px;
+  }
+  .searchContainer input {
+    width: 170px;
+  }
+  .searchContainer input::placeholder {
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
+@media (max-width: 420px) {
+  .head {
+    font-size: 14px;
+  }
+  .searchContainer {
+    width: 235px;
+  }
+  .searchContainer input {
+    width: 154px;
+  }
+}
+
+@media (max-width: 420px) {
+  .searchContainer {
+    width: 200px;
+  }
+  .searchContainer input {
+    width: 120px;
+  }
 }
