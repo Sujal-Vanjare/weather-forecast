@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Image from "next/image";
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,12 +14,32 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Navbar />
-        {children}
-        {/* <Footer /> */}
-      </body>
-    </html>
+    <>
+      <Head>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+        ></script>
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-72TBWWE1RV');
+          `,
+          }}
+        />
+      </Head>
+      <html lang="en">
+        <body className={inter.className}>
+          <Navbar />
+          {children}
+          {/* <Footer /> */}
+        </body>
+      </html>
+    </>
   );
 }
