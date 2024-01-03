@@ -10,6 +10,7 @@ const moonPhaseImages = {
   "Waning Gibbous": "waning-gibbous-moon.png",
   "Third Quarter": "last-quarter-moon.png",
   "Waning Crescent": "waning-crescent-moon.png",
+  "Last Quarter": "last-quarter-moon.png",
 };
 
 export default function SunMoonTime({ astro }) {
@@ -36,6 +37,7 @@ export default function SunMoonTime({ astro }) {
     astro.moonrise,
     astro.moonset
   );
+
   return (
     <>
       <div className={styles.sunmoon}>
