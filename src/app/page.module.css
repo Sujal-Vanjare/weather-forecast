@@ -1,6 +1,6 @@
 .page {
-  max-width: 1256px;
   height: calc(100vh - 49px);
+  background-color: #000;
 
   margin: auto;
   padding: 10px 10px;
@@ -13,13 +13,32 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 16%;
 }
 
 .head {
-  font-size: 40px;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 44px;
 }
 
 .desc {
+  text-align: center;
   margin-top: 20px;
-  font-size: 24px;
+  font-size: 26px;
+  opacity: 0.9;
+}
+
+@media (max-width: 640px) {
+  .video {
+    width: 100%;
+    height: auto;
+  }
+
+  .head {
+    font-size: 36px;
+  }
+  .desc {
+    font-size: 20px;
+  }
 }
