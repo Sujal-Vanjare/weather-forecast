@@ -1,0 +1,164 @@
+.page {
+  max-width: 1256px;
+  margin: auto;
+  padding: 10px 10px 80px 10px;
+}
+
+@keyframes shimmer {
+  to {
+    background-position-x: 0%;
+  }
+}
+
+.firstRow {
+  display: flex;
+  width: 100%;
+  height: 480px;
+  gap: 10px;
+}
+
+.weatherReport {
+  width: 854px;
+  height: 100%;
+  border-radius: 16px;
+
+  background: linear-gradient(to right, #3a3a3a 40%, #4a4a4a 50%, #3a3a3a 60%);
+  background-size: 300%;
+  background-position-x: 100%;
+  animation: shimmer 0.8s infinite linear;
+}
+
+.sunMoonTime {
+  width: 372px;
+  height: 100%;
+  border-radius: 16px;
+
+  background: linear-gradient(to right, #3a3a3a 40%, #4a4a4a 50%, #3a3a3a 60%);
+  background-size: 300%;
+  background-position-x: 100%;
+  animation: shimmer 0.8s infinite linear;
+}
+
+.secondRow {
+  margin-top: 10px;
+  width: 100%;
+  height: 160px;
+  border-radius: 6px;
+
+  background: linear-gradient(to right, #3a3a3a 40%, #4a4a4a 50%, #3a3a3a 60%);
+  background-size: 300%;
+  background-position-x: 100%;
+  animation: shimmer 0.8s infinite linear;
+}
+
+.forecastText {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.thirdRow {
+  margin-top: 16px;
+  width: 100%;
+  height: 200px;
+  border-radius: 6px;
+
+  background: linear-gradient(to right, #3a3a3a 40%, #4a4a4a 50%, #3a3a3a 60%);
+  background-size: 300%;
+  background-position-x: 100%;
+  animation: shimmer 0.8s infinite linear;
+}
+
+.hourlyForecast {
+  margin-top: 16px;
+  width: 100%;
+  height: 320px;
+  border-radius: 6px;
+
+  background: linear-gradient(to right, #3a3a3a 40%, #4a4a4a 50%, #3a3a3a 60%);
+  background-size: 300%;
+  background-position-x: 100%;
+  animation: shimmer 0.8s infinite linear;
+}
+
+@media (max-width: 1303px) {
+  .page {
+    max-width: 944px;
+    margin: auto;
+    padding: 10px 10px 60px 10px;
+  }
+
+  .firstRow {
+    height: 470px;
+  }
+
+  .weatherReport {
+    width: 610px;
+    height: 100%;
+    border-radius: 12px;
+  }
+
+  .secondRow {
+    height: 150px;
+  }
+
+  .thirdRow {
+    height: 180px;
+  }
+}
+
+@media (max-width: 979px) {
+  .page {
+    max-width: 632px;
+  }
+  .firstRow {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    gap: 10px;
+  }
+
+  .weatherReport {
+    width: 100%;
+    height: 436px;
+  }
+  .sunMoonTime {
+    width: 100%;
+    height: 331px;
+  }
+
+  .secondRow {
+    height: 408px;
+  }
+
+  .forecastText,
+  .thirdRow,
+  .hourlyForecast {
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .page {
+    max-width: 100%;
+    margin: auto;
+    padding: 10px 15px 80px 15px;
+  }
+
+  .firstRow {
+    width: 100%;
+    height: fit-content;
+  }
+
+  .weatherReport {
+    height: 398px;
+  }
+  .sunMoonTime {
+    height: 458px;
+  }
+
+  .secondRow {
+    display: none;
+  }
+}
