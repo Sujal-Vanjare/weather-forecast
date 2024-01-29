@@ -1,7 +1,4 @@
 .page {
-  height: calc(100vh - 49px);
-  background-color: #000;
-
   margin: auto;
   padding: 10px 10px;
 }
@@ -11,9 +8,8 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding-bottom: 16%;
+  padding: 14vh 0;
 }
 
 .head {
