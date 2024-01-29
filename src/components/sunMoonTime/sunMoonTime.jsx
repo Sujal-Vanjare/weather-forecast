@@ -14,8 +14,8 @@ const moonPhaseImages = {
 };
 
 export default function SunMoonTime({ astro }) {
-  // Function to calculate time difference and format it
-  function calculateAndFormatTimeDifference(start, end) {
+  // Function to calculate time difference , for sun
+  function calculateSunTotalTimeDifference(start, end) {
     const startTime = new Date(`2000-01-01 ${start}`);
     const endTime = new Date(`2000-01-01 ${end}`);
 
@@ -29,11 +29,39 @@ export default function SunMoonTime({ astro }) {
   }
 
   // Calculate and format time differences
-  const sunriseToSunset = calculateAndFormatTimeDifference(
+  const sunriseToSunset = calculateSunTotalTimeDifference(
     astro.sunrise,
     astro.sunset
   );
-  const moonriseToMoonset = calculateAndFormatTimeDifference(
+
+  //  for moon
+  function calculateMoonTotalTimeDifference(moonrise, moonset) {
+    const moonriseToday = new Date(`2000-01-01 ${moonrise}`);
+    const moonsetToday = new Date(`2000-01-01 ${moonset}`);
+    const moonriseTomorrow = new Date(`2000-01-02 ${moonrise}`);
+    const moonsetTomorrow = new Date(`2000-01-02 ${moonset}`);
+
+    let totalMoonTime;
+
+    // Check if moonset today is before moonrise today
+    if (moonsetToday < moonriseToday) {
+      // Moonset today is on the next day
+      totalMoonTime = moonsetTomorrow - moonriseToday;
+    } else {
+      // Moonrise and moonset are on the same day
+      totalMoonTime = moonsetToday - moonriseToday;
+    }
+
+    const totalMoonHours = Math.floor(totalMoonTime / 3600000);
+    const totalMoonMinutes = Math.floor((totalMoonTime % 3600000) / 60000);
+
+    return `${totalMoonHours.toString().padStart(2, "0")} hr ${totalMoonMinutes
+      .toString()
+      .padStart(2, "0")} min`;
+  }
+
+  // Usage
+  const moonriseToMoonset = calculateMoonTotalTimeDifference(
     astro.moonrise,
     astro.moonset
   );
@@ -62,19 +90,19 @@ export default function SunMoonTime({ astro }) {
             </div>
 
             <div className={styles.moon}>
-              <div className={styles.rise}>
-                <div className={styles.moonriseIcon}></div>
-                <div className={styles.sunmoontext}>Moonrise</div>
-                <div className={styles.sunmoontime}>{astro.moonrise}</div>
+              <div className={styles.set}>
+                <div className={styles.moonsetIcon}></div>
+                <div className={styles.sunmoontext}>Moonset</div>
+                <div className={styles.sunmoontime}>{astro.moonset}</div>
               </div>
               <div className={styles.totalTime}>
                 <div className={styles.sunmoontext}>total time</div>
                 <div className={styles.timeDiff}>{moonriseToMoonset}</div>
               </div>
-              <div className={styles.set}>
-                <div className={styles.moonsetIcon}></div>
-                <div className={styles.sunmoontext}>Moonset</div>
-                <div className={styles.sunmoontime}>{astro.moonset}</div>
+              <div className={styles.rise}>
+                <div className={styles.moonriseIcon}></div>
+                <div className={styles.sunmoontext}>Moonrise</div>
+                <div className={styles.sunmoontime}>{astro.moonrise}</div>
               </div>
             </div>
           </div>
