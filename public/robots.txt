@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://weatherforecasts.vercel.app
+
+# Sitemaps
+Sitemap: https://weatherforecasts.vercel.app/sitemap.xml
